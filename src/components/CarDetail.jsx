@@ -2,6 +2,14 @@ import React from 'react';
 import { Clock, Gauge, Users } from 'lucide-react';
 
 export default function CarDetail({ car }) {
+  if (!car) {
+    return (
+      <div className="bg-black min-h-screen text-white flex items-center justify-center">
+        <h1 className="text-2xl">Car not found</h1>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-black min-h-screen text-white">
       <div className="relative h-[60vh]">
