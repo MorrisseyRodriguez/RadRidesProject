@@ -49,7 +49,7 @@ export const carsData = {
     overview: "The Portofino M blends Ferrari's performance heritage with everyday usability, offering a luxurious and dynamic driving experience in a convertible grand tourer."
   },
   'corvette-c8-z06': {
-    name: 'Chevrolet Corvette C8 Z06',
+    name: 'Corvette Z06',
     images: [
       '/Images/Corvette C8/DSC01405.jpg',
       '/Images/Corvette C8/DSC01434.jpg',
