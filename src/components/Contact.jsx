@@ -18,9 +18,7 @@ export default function Contact() {
             <form className="space-y-4">
               <select className="w-full bg-zinc-900 border border-zinc-800 rounded-md p-3 text-white">
                 <option value="">Select your request type</option>
-                <option value="rental">Car Rental</option>
-                <option value="quote">Get a Quote</option>
-                <option value="info">General Information</option>
+                <option value="booking">Booking a rental or car request</option>
               </select>
 
               <textarea
