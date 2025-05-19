@@ -2,6 +2,7 @@ import React from 'react';
 import { Clock, Star, CheckCircle, Car, MapPin, MessageSquare, ArrowUp, DollarSign, Heart, Wallet, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Hero from './components/Hero';
+import Testimonials from './components/Testimonials';
 
 const features = [
   {
@@ -309,6 +310,9 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/* Testimonials Section */}
+      <Testimonials />
     </div>
   );
 }
