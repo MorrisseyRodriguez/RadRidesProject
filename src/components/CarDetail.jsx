@@ -10,7 +10,7 @@ export default function CarDetail() {
 
   return (
     <div className="bg-black min-h-screen text-white">
-      <div className="relative h-[60vh]">
+      <div className="relative h-[60vh] overflow-hidden">
         <Swiper
           modules={[Navigation]}
           navigation={{
@@ -18,15 +18,19 @@ export default function CarDetail() {
             nextEl: '.swiper-button-next',
           }}
           className="h-full"
+          slidesPerView={1}
+          spaceBetween={0}
         >
           {(car.images || [car.image]).map((image, index) => (
-            <SwiperSlide key={index}>
-              <img 
-                src={image} 
-                alt={`${car.name} - View ${index + 1}`}
-                className="w-full h-full object-cover object-center scale-110"
-                style={{ objectPosition: '50% 50%' }}
-              />
+            <SwiperSlide key={index} className="overflow-hidden">
+              <div className="w-full h-full">
+                <img 
+                  src={image} 
+                  alt={`${car.name} - View ${index + 1}`}
+                  className="w-full h-full object-cover object-center scale-110"
+                  style={{ objectPosition: '50% 50%' }}
+                />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
