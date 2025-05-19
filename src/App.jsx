@@ -1,5 +1,6 @@
 import React from 'react';
 import { Clock, Star, CheckCircle, Car, MapPin, MessageSquare, ArrowUp, DollarSign, Heart, Wallet } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Hero from './components/Hero';
 
 const features = [
@@ -9,7 +10,7 @@ const features = [
   },
   {
     icon: Star,
-    text: 'Trusted By LA\'s Car Lovers Since 2014'
+    text: "Trusted By LA's Car Lovers Since 2014"
   },
   {
     icon: CheckCircle,
@@ -47,36 +48,43 @@ const features = [
 
 const fleet = [
   {
+    id: 'ferrari-488',
     name: 'Ferrari 488',
     image: '/Images/Ferrari 488/ferrari-488.jpg',
     hasDiscount: false
   },
   {
+    id: 'rolls-royce-cullinan',
     name: 'Rolls Royce Cullinan',
     image: '/Images/RR Cullinan/cullinan.jpg',
     hasDiscount: false
   },
   {
+    id: 'ferrari-portofino-m',
     name: 'Ferrari Portofino M',
     image: '/Images/Ferrari Portofino M/portofino.jpg',
     hasDiscount: false
   },
   {
+    id: 'corvette-c8-z06',
     name: 'Corvette C8 Z06',
     image: '/Images/Corvette C8/corvette.jpg',
     hasDiscount: true
   },
   {
+    id: 'porsche-718-boxster',
     name: 'Porsche 718 Boxster',
     image: '/Images/Porsche 718/boxster.jpg',
     hasDiscount: true
   },
   {
+    id: 'cadillac-escalade',
     name: 'Cadillac Escalade Sport Platinum',
     image: '/Images/Escalade/escalade.jpg',
     hasDiscount: true
   },
   {
+    id: 'fiat-500-abarth',
     name: 'Fiat 500 Abarth',
     image: '/Images/Fiat/fiat.jpg',
     hasDiscount: true
@@ -120,7 +128,7 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {fleet.map((car) => (
-              <div key={car.name} className="bg-zinc-900 rounded-lg overflow-hidden">
+              <div key={car.id} className="bg-zinc-900 rounded-lg overflow-hidden">
                 <div className="relative aspect-[16/9]">
                   <img 
                     src={car.image} 
@@ -139,9 +147,12 @@ function App() {
                   {car.hasDiscount && (
                     <p className="text-green-500 text-sm mt-2">Multi-day discounts apply</p>
                   )}
-                  <button className="w-full mt-4 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-colors">
+                  <Link 
+                    to={`/cars/${car.id}`}
+                    className="block w-full mt-4 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-colors text-center"
+                  >
                     View Details
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
