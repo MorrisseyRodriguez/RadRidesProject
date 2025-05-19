@@ -23,7 +23,7 @@ export default function Hero() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/Images/Corvette C8/DSC01434.jpg)',
+          backgroundImage: 'url(/public/Images/Corvette C8/DSC01434.jpg)',
           backgroundPosition: 'center 25%'
         }}
       >
