@@ -2,10 +2,10 @@ export const carsData = {
   'ferrari-488': {
     name: 'Ferrari 488',
     images: [
-      '/Images/Ferrari 488/Screenshot 2025-05-17 142855.png',
-      '/Images/Ferrari 488/Screenshot 2025-05-19 145441.png'
+      '/Images/Ferrari 488/Screenshot 2025-05-19 145441.png',
+      '/Images/Ferrari 488/Screenshot 2025-05-17 142855.png'
     ],
-    image: '/Images/Ferrari 488/Screenshot 2025-05-17 142855.png',
+    image: '/Images/Ferrari 488/Screenshot 2025-05-19 145441.png',
     acceleration: '2.7s',
     horsepower: '661hp @ 8,000 rpm',
     topSpeed: '205 mph',
