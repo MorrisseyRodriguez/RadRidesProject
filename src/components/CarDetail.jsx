@@ -24,7 +24,8 @@ export default function CarDetail() {
               <img 
                 src={image} 
                 alt={`${car.name} - View ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center scale-110"
+                style={{ objectPosition: '50% 50%' }}
               />
             </SwiperSlide>
           ))}

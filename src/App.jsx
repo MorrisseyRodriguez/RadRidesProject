@@ -53,13 +53,13 @@ const fleet = [
   {
     id: 'ferrari-488',
     name: 'Ferrari 488',
-    image: '/Images/Ferrari 488/ferrari-488.jpg',
+    image: '/Images/Ferrari 488/Screenshot 2025-05-17 142855.png',
     hasDiscount: false
   },
   {
     id: 'rolls-royce-cullinan',
     name: 'Rolls Royce Cullinan',
-    image: '/Images/RR Cullinan/cullinan.jpg',
+    image: '/Images/RR Cullinan/Screenshot 2025-05-17 142721.png',
     hasDiscount: false
   },
   {
@@ -208,7 +208,8 @@ function App() {
                   <img 
                     src={car.image} 
                     alt={car.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center scale-110"
+                    style={{ objectPosition: '50% 50%' }}
                   />
                 </div>
                 <div className="p-6">
