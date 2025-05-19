@@ -122,7 +122,10 @@ export const carsData = {
   },
   'fiat-500-abarth': {
     name: 'Fiat 500 Abarth',
-    image: '/Images/Fiat/fiat.jpg',
+    images: [
+      '/Images/Fiat 500/Screenshot 2025-05-18 025853.png'
+    ],
+    image: '/Images/Fiat 500/Screenshot 2025-05-18 025853.png',
     acceleration: '6.8s',
     horsepower: '160hp @ 5,500 rpm',
     topSpeed: '130 mph',
