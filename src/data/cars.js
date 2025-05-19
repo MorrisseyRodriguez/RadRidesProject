@@ -3,7 +3,7 @@ export const carsData = {
     name: 'Ferrari 488',
     images: [
       '/Images/Ferrari 488/Screenshot 2025-05-17 142855.png',
-      '/Images/Ferrari 488/Screenshot 2025-05-17 143132.png'
+      '/Images/Ferrari 488/Screenshot 2025-05-19 145441.png'
     ],
     image: '/Images/Ferrari 488/Screenshot 2025-05-17 142855.png',
     acceleration: '2.7s',
