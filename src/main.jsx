@@ -5,6 +5,7 @@ import App from './App.jsx'
 import CarDetail from './components/CarDetail.jsx'
 import Layout from './components/Layout.jsx'
 import FAQ from './components/FAQ.jsx'
+import About from './components/About.jsx'
 import { carsData } from './data/cars.js'
 import './index.css'
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/faqs",
         element: <FAQ />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },
