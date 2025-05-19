@@ -216,9 +216,9 @@ function App() {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-500 hidden md:block" />
+            <div className="absolute top-1/2 left-0 right-0 h-1 bg-blue-500 hidden md:block" />
 
-            <div className="space-y-20">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {bookingSteps.map((step, index) => (
                 <div key={index} className="relative">
                   {/* Number circle */}
@@ -226,13 +226,13 @@ function App() {
                     {step.number}
                   </div>
 
-                  <div className="bg-zinc-900 rounded-lg p-8 max-w-xl mx-auto">
-                    <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
+                  <div className="bg-zinc-900 rounded-lg p-6 mt-6">
+                    <h3 className="text-xl font-bold text-white mb-4 text-center">{step.title}</h3>
                     <ul className="space-y-2">
                       {step.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="text-white/80 flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                          {item}
+                        <li key={itemIndex} className="text-white/80 flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                          <span>{item}</span>
                         </li>
                       ))}
                     </ul>
