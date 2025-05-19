@@ -87,7 +87,10 @@ export const carsData = {
   },
   'porsche-718-boxster': {
     name: 'Porsche 718 Boxster',
-    image: '/Images/Porsche 718/boxster.jpg',
+    images: [
+      '/Images/Porsche 718/Screenshot 2025-05-18 024921.png'
+    ],
+    image: '/Images/Porsche 718/Screenshot 2025-05-18 024921.png',
     acceleration: '4.5s',
     horsepower: '300hp (Base), 350hp (S)',
     topSpeed: '170 mph',

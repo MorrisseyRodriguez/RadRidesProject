@@ -65,7 +65,7 @@ const fleet = [
   {
     id: 'ferrari-portofino-m',
     name: 'Ferrari Portofino M',
-    image: '/Images/Ferrari Portofino M/portofino.jpg',
+    image: '/Images/Ferrari Portofino M/20230630_121810.jpg',
     hasDiscount: false
   },
   {
@@ -77,7 +77,7 @@ const fleet = [
   {
     id: 'porsche-718-boxster',
     name: 'Porsche 718 Boxster',
-    image: '/Images/Porsche 718/boxster.jpg',
+    image: '/Images/Porsche 718/Screenshot 2025-05-18 024921.png',
     hasDiscount: true
   },
   {
