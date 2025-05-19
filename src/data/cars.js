@@ -43,7 +43,14 @@ export const carsData = {
   },
   'ferrari-portofino-m': {
     name: 'Ferrari Portofino M',
-    image: '/Images/Ferrari Portofino M/portofino.jpg',
+    images: [
+      '/Images/Ferrari Portofino M/20230630_121810.jpg',
+      '/Images/Ferrari Portofino M/20230630_122026.jpg',
+      '/Images/Ferrari Portofino M/20230630_122121.jpg',
+      '/Images/Ferrari Portofino M/20230630_121726 (1).jpg',
+      '/Images/Ferrari Portofino M/20230630_120034.jpg'
+    ],
+    image: '/Images/Ferrari Portofino M/20230630_121810.jpg',
     acceleration: '3.45s',
     horsepower: '620hp',
     topSpeed: '200 mph',
