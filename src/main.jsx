@@ -15,7 +15,11 @@ const router = createBrowserRouter([
     path: "/cars/:carId",
     element: <CarDetail />,
     loader: ({ params }) => {
-      return carsData[params.carId];
+      const car = carsData[params.carId];
+      if (!car) {
+        throw new Error('Car not found');
+      }
+      return car;
     },
   },
 ]);
