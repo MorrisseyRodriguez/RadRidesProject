@@ -3,6 +3,7 @@ import { Clock, Star, CheckCircle, Car, MapPin, MessageSquare, ArrowUp, DollarSi
 import { Link } from 'react-router-dom';
 import Hero from './components/Hero';
 import Testimonials from './components/Testimonials';
+import Contact from './components/Contact';
 
 const features = [
   {
@@ -313,6 +314,9 @@ function App() {
 
       {/* Testimonials Section */}
       <Testimonials />
+
+      {/* Contact Section */}
+      <Contact />
     </div>
   );
 }
