@@ -17,6 +17,13 @@ const NavLink = ({ to, children, className }) => (
 );
 
 export default function Layout() {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-between px-8 py-6">
@@ -26,13 +33,27 @@ export default function Layout() {
         </Link>
 
         <div className="hidden lg:flex items-center gap-8">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About Us</NavLink>
-          <NavLink to="/fleet">The Fleet</NavLink>
-          <NavLink to="/team">The Team</NavLink>
-          <NavLink to="/contact">Contact Us</NavLink>
-          <NavLink to="/faqs">FAQs</NavLink>
-          <NavLink to="/blog">Blog</NavLink>
+          <Link to="/" className="text-white/80 hover:text-white transition-colors">Home</Link>
+          <Link to="/about" className="text-white/80 hover:text-white transition-colors">About Us</Link>
+          <button 
+            onClick={() => scrollToSection('fleet')} 
+            className="text-white/80 hover:text-white transition-colors"
+          >
+            The Fleet
+          </button>
+          <button 
+            onClick={() => scrollToSection('team')} 
+            className="text-white/80 hover:text-white transition-colors"
+          >
+            The Team
+          </button>
+          <button 
+            onClick={() => scrollToSection('contact')} 
+            className="text-white/80 hover:text-white transition-colors"
+          >
+            Contact Us
+          </button>
+          <Link to="/faqs" className="text-white/80 hover:text-white transition-colors">FAQs</Link>
           
           <a 
             href="tel:8182317347" 

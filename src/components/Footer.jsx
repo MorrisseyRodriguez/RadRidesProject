@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import { Instagram } from 'lucide-react';
 
 export default function Footer() {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-black text-white py-16 border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,8 +42,26 @@ export default function Footer() {
               <Link to="/about" className="block text-white/60 hover:text-white transition-colors">
                 About Us
               </Link>
-              <Link to="/fleet" className="block text-white/60 hover:text-white transition-colors">
+              <button 
+                onClick={() => scrollToSection('fleet')}
+                className="block text-white/60 hover:text-white transition-colors w-full text-left"
+              >
                 The Fleet
+              </button>
+              <button 
+                onClick={() => scrollToSection('team')}
+                className="block text-white/60 hover:text-white transition-colors w-full text-left"
+              >
+                The Team
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="block text-white/60 hover:text-white transition-colors w-full text-left"
+              >
+                Contact Us
+              </button>
+              <Link to="/faqs" className="block text-white/60 hover:text-white transition-colors">
+                FAQs
               </Link>
             </div>
           </div>

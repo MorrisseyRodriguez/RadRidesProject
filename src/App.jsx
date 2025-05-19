@@ -182,7 +182,7 @@ function App() {
       </div>
 
       {/* Fleet Section */}
-      <div className="bg-black py-20">
+      <div id="fleet" className="bg-black py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white text-center mb-12">
             The Fleet
@@ -271,7 +271,7 @@ function App() {
       </div>
 
       {/* Team Section */}
-      <div className="bg-black py-20">
+      <div id="team" className="bg-black py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white text-center mb-16">
             The Team
@@ -316,7 +316,9 @@ function App() {
       <Testimonials />
 
       {/* Contact Section */}
-      <Contact />
+      <div id="contact">
+        <Contact />
+      </div>
     </div>
   );
 }
