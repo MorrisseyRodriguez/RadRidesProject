@@ -62,7 +62,7 @@ function App() {
             {features.map((feature, index) => (
               <div 
                 key={index} 
-                className="bg-zinc-900 rounded-lg p-6 flex items-center gap-4 transform transition-transform hover:scale-105"
+                className="bg-zinc-900 rounded-lg p-6 flex items-center gap-4 transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,119,255,0.5)] relative"
               >
                 <feature.icon className="w-6 h-6 text-blue-500 flex-shrink-0" />
                 <span className="text-white">{feature.text}</span>
