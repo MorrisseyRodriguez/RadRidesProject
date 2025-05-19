@@ -2,6 +2,7 @@ import React from 'react';
 import { Phone } from 'lucide-react';
 import { Link, Outlet } from 'react-router-dom';
 import clsx from 'clsx';
+import Footer from './Footer';
 
 const NavLink = ({ to, children, className }) => (
   <Link 
@@ -46,6 +47,8 @@ export default function Layout() {
       <div className="pt-20">
         <Outlet />
       </div>
+
+      <Footer />
     </div>
   );
 }
