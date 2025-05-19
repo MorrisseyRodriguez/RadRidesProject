@@ -3,24 +3,31 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import CarDetail from './components/CarDetail.jsx'
+import Layout from './components/Layout.jsx'
 import { carsData } from './data/cars.js'
 import './index.css'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-  },
-  {
-    path: "/cars/:carId",
-    element: <CarDetail />,
-    loader: ({ params }) => {
-      const car = carsData[params.carId];
-      if (!car) {
-        throw new Error('Car not found');
-      }
-      return car;
-    },
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "/cars/:carId",
+        element: <CarDetail />,
+        loader: ({ params }) => {
+          const car = carsData[params.carId];
+          if (!car) {
+            throw new Error('Car not found');
+          }
+          return car;
+        },
+      },
+    ],
   },
 ]);
 

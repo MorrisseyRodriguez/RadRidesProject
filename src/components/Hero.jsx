@@ -2,18 +2,6 @@ import React from 'react';
 import { Phone } from 'lucide-react';
 import clsx from 'clsx';
 
-const NavLink = ({ href, children, className }) => (
-  <a 
-    href={href} 
-    className={clsx(
-      "text-white/80 hover:text-white transition-colors",
-      className
-    )}
-  >
-    {children}
-  </a>
-);
-
 const Button = ({ variant = 'primary', children, className, ...props }) => (
   <button
     className={clsx(
@@ -41,32 +29,6 @@ export default function Hero() {
       >
         <div className="absolute inset-0 bg-black/70" />
       </div>
-
-      {/* Navigation */}
-      <nav className="relative z-10 flex items-center justify-between px-8 py-6">
-        <a href="/" className="text-2xl font-bold">
-          <span className="text-blue-500">Rad</span>
-          <span className="text-white">Rides BCR</span>
-        </a>
-
-        <div className="hidden lg:flex items-center gap-8">
-          <NavLink href="/home">Home</NavLink>
-          <NavLink href="/about">About Us</NavLink>
-          <NavLink href="/fleet">The Fleet</NavLink>
-          <NavLink href="/team">The Team</NavLink>
-          <NavLink href="/contact">Contact Us</NavLink>
-          <NavLink href="/faqs">FAQs</NavLink>
-          <NavLink href="/blog">Blog</NavLink>
-          
-          <NavLink 
-            href="tel:8182317347" 
-            className="flex items-center gap-2 bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 text-white"
-          >
-            <Phone className="w-4 h-4" />
-            (818) 231-7347
-          </NavLink>
-        </div>
-      </nav>
 
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-[calc(100vh-5rem)] text-center px-4">
