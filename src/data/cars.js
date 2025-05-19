@@ -22,7 +22,12 @@ export const carsData = {
   },
   'rolls-royce-cullinan': {
     name: 'Rolls-Royce Cullinan',
-    image: '/Images/RR Cullinan/cullinan.jpg',
+    images: [
+      '/Images/RR Cullinan/Screenshot 2025-05-17 142721.png',
+      '/Images/RR Cullinan/Screenshot 2025-05-17 142735.png',
+      '/Images/RR Cullinan/Screenshot 2025-05-17 142603.png'
+    ],
+    image: '/Images/RR Cullinan/Screenshot 2025-05-17 142721.png',
     acceleration: '4.9s',
     horsepower: '563hp (Standard), 600hp (Black Badge)',
     topSpeed: '155 mph',
