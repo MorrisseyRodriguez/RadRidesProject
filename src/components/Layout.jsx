@@ -1,6 +1,6 @@
 import React from 'react';
 import { Phone } from 'lucide-react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import Footer from './Footer';
 
@@ -17,10 +17,16 @@ const NavLink = ({ to, children, className }) => (
 );
 
 export default function Layout() {
+  const navigate = useNavigate();
+
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (window.location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -69,7 +75,7 @@ export default function Layout() {
         <Outlet />
       </div>
 
-      <Footer />
+      <Footer scrollToSection={scrollToSection} />
     </div>
   );
 }
