@@ -50,7 +50,7 @@ export const carsData = {
   },
   'corvette-c8-z06': {
     name: 'Chevrolet Corvette C8 Z06',
-    image: '/Images/Corvette C8/corvette.jpg',
+    image: '/Images/Corvette C8/DSC01405.jpg',
     acceleration: '2.6s',
     horsepower: '670hp',
     topSpeed: '195 mph',

@@ -71,7 +71,7 @@ const fleet = [
   {
     id: 'corvette-c8-z06',
     name: 'Corvette C8 Z06',
-    image: '/Images/Corvette C8/corvette.jpg',
+    image: '/Images/Corvette C8/Screenshot 2025-05-18 024359.png',
     hasDiscount: true
   },
   {
