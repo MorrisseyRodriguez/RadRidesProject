@@ -215,18 +215,18 @@ function App() {
           </h2>
 
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-blue-500 hidden md:block" />
+            {/* Numbers connection line */}
+            <div className="absolute top-6 left-[calc(12.5%+1.5rem)] right-[calc(12.5%+1.5rem)] h-1 bg-blue-500 hidden md:block" />
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {bookingSteps.map((step, index) => (
                 <div key={index} className="relative">
                   {/* Number circle */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
+                  <div className="relative mx-auto w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl z-10 mb-8">
                     {step.number}
                   </div>
 
-                  <div className="bg-zinc-900 rounded-lg p-6 mt-6">
+                  <div className="bg-zinc-900 rounded-lg p-6">
                     <h3 className="text-xl font-bold text-white mb-4 text-center">{step.title}</h3>
                     <ul className="space-y-2">
                       {step.items.map((item, itemIndex) => (
