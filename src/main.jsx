@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import CarDetail from './components/CarDetail.jsx'
 import Layout from './components/Layout.jsx'
+import FAQ from './components/FAQ.jsx'
 import { carsData } from './data/cars.js'
 import './index.css'
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
           }
           return car;
         },
+      },
+      {
+        path: "/faqs",
+        element: <FAQ />,
       },
     ],
   },
