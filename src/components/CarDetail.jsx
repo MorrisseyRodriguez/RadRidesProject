@@ -77,19 +77,16 @@ export default function CarDetail() {
 
           <div className="lg:col-span-1">
             <div className="bg-zinc-900 p-6 rounded-lg sticky top-8">
-              <h3 className="text-xl font-bold mb-6">Pricing</h3>
+              <h3 className="text-xl font-bold mb-6">Request a Quote to Book This Vehicle</h3>
               <div className="space-y-4 mb-8">
                 <div className="flex justify-between">
-                  <span>100 miles per day included</span>
+                  <span>1 Rental Day = 100 miles</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Additional miles: $5 per mile</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Security deposit required</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>1 Rental Day = 24 hours</span>
                 </div>
               </div>
 
