@@ -1,6 +1,9 @@
 import React from 'react';
-import { Clock, Gauge, Users } from 'lucide-react';
+import { Clock, Gauge, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLoaderData } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
 
 export default function CarDetail() {
   const car = useLoaderData();
@@ -8,13 +11,38 @@ export default function CarDetail() {
   return (
     <div className="bg-black min-h-screen text-white">
       <div className="relative h-[60vh]">
-        <img 
-          src={car.image} 
-          alt={car.name}
-          className="w-full h-full object-cover"
-        />
+        <Swiper
+          modules={[Navigation]}
+          navigation={{
+            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next',
+          }}
+          className="h-full"
+        >
+          {(car.images || [car.image]).map((image, index) => (
+            <SwiperSlide key={index}>
+              <img 
+                src={image} 
+                alt={`${car.name} - View ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
         <h1 className="absolute bottom-8 left-8 text-5xl font-bold">{car.name}</h1>
+        
+        {/* Navigation Buttons */}
+        {car.images && car.images.length > 1 && (
+          <>
+            <button className="swiper-button-prev absolute left-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center text-white hover:bg-black/90 transition-colors z-10">
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button className="swiper-button-next absolute right-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 flex items-center justify-center text-white hover:bg-black/90 transition-colors z-10">
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </>
+        )}
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
