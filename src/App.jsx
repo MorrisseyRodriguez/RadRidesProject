@@ -91,6 +91,43 @@ const fleet = [
   }
 ];
 
+const bookingSteps = [
+  {
+    number: 1,
+    title: "Make Sure You're Good To Go",
+    items: [
+      "Must be 21+ (exceptions apply—just ask)",
+      "Insurance required (we've got options if you don't)",
+      "Deposit between $500-$1,500 (refunded after return)"
+    ]
+  },
+  {
+    number: 2,
+    title: "Pick Your Dream Ride",
+    items: [
+      "View real cars with real prices",
+      "See what's available and what fits your vibe"
+    ]
+  },
+  {
+    number: 3,
+    title: "Submit Form or Call to Book",
+    items: [
+      "Submit the form or text us with your car + dates",
+      "Pay 50% to lock it in, simple and secure"
+    ]
+  },
+  {
+    number: 4,
+    title: "Show Up & Show Out",
+    items: [
+      "Either show up or get it delivered to you",
+      "Grab the keys, drop the deposit, and go turn heads",
+      "When you're back, pay the rest and get your deposit back"
+    ]
+  }
+];
+
 function App() {
   return (
     <div className="min-h-screen bg-gray-100">
@@ -165,6 +202,44 @@ function App() {
             <button className="bg-transparent border border-blue-500 text-blue-500 px-6 py-3 rounded-md hover:bg-blue-500 hover:text-white transition-colors">
               Request a specific car
             </button>
+          </div>
+        </div>
+      </div>
+
+      {/* How to Book Section */}
+      <div className="bg-black py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-white text-center mb-16">
+            How to Book in 4 Easy Steps
+            <div className="w-24 h-1 bg-blue-500 mx-auto mt-4"></div>
+          </h2>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-500 hidden md:block" />
+
+            <div className="space-y-20">
+              {bookingSteps.map((step, index) => (
+                <div key={index} className="relative">
+                  {/* Number circle */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
+                    {step.number}
+                  </div>
+
+                  <div className="bg-zinc-900 rounded-lg p-8 max-w-xl mx-auto">
+                    <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
+                    <ul className="space-y-2">
+                      {step.items.map((item, itemIndex) => (
+                        <li key={itemIndex} className="text-white/80 flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
