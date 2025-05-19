@@ -11,6 +11,8 @@ export default function CarDetail() {
   return (
     <div className="bg-black min-h-screen text-white">
       <div className="relative h-[60vh]">
+        <h1 className="absolute top-8 left-8 text-5xl font-bold z-10">{car.name}</h1>
+        
         <Swiper
           modules={[Navigation]}
           navigation={{
@@ -30,7 +32,6 @@ export default function CarDetail() {
           ))}
         </Swiper>
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
-        <h1 className="absolute bottom-8 left-8 text-5xl font-bold">{car.name}</h1>
         
         {/* Navigation Buttons */}
         {car.images && car.images.length > 1 && (
