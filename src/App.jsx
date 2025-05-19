@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, Star, CheckCircle, Car, MapPin, MessageSquare, ArrowUp, DollarSign, Heart, Wallet } from 'lucide-react';
+import { Clock, Star, CheckCircle, Car, MapPin, MessageSquare, ArrowUp, DollarSign, Heart, Wallet, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Hero from './components/Hero';
 
@@ -128,6 +128,30 @@ const bookingSteps = [
   }
 ];
 
+const team = [
+  {
+    name: "Chad",
+    role: "Owner/Operator",
+    image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg",
+    description: "I stumbled into this business when I listed a salvage title Prius on Relay Rides. In spite of myself and with the help of Dara we've managed to build and keep it growing. I'm an enthusiast so you can always keep me talking when it comes to cars!",
+    contact: true
+  },
+  {
+    name: "Dara",
+    role: "Logistics",
+    image: "https://images.pexels.com/photos/8993561/pexels-photo-8993561.jpeg",
+    description: "The silent partner and car rental delivery chase car girl!",
+    contact: false
+  },
+  {
+    name: "Charley & Kenny",
+    role: "Mascots",
+    image: "https://images.pexels.com/photos/4587998/pexels-photo-4587998.jpeg",
+    description: "Mascots",
+    contact: false
+  }
+];
+
 function App() {
   return (
     <div className="min-h-screen bg-gray-100">
@@ -240,6 +264,48 @@ function App() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Team Section */}
+      <div className="bg-black py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-white text-center mb-16">
+            The Team
+            <div className="w-24 h-1 bg-blue-500 mx-auto mt-4"></div>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {team.map((member, index) => (
+              <div key={index} className="relative group">
+                <div className="relative h-96 overflow-hidden rounded-lg">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-2xl font-bold text-white mb-1">{member.name}</h3>
+                    <p className="text-blue-500 mb-3">{member.role}</p>
+                    <p className="text-white/80 text-sm">{member.description}</p>
+                    
+                    {member.contact && (
+                      <div className="flex gap-4 mt-4">
+                        <a href="mailto:contact@example.com" className="text-white/80 hover:text-white">
+                          <Mail className="w-5 h-5" />
+                        </a>
+                        <a href="tel:+1234567890" className="text-white/80 hover:text-white">
+                          <Phone className="w-5 h-5" />
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
