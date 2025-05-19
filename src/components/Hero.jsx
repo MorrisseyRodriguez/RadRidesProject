@@ -44,12 +44,12 @@ export default function Hero() {
 
       {/* Navigation */}
       <nav className="relative z-10 flex items-center justify-between px-8 py-6">
-        <a href="/" className="text-2xl font-bold">
+        <a href="/" className="text-2xl font-bold text-white hover:text-blue-400 transition-colors">
           <span className="text-blue-500">Rad</span>
-          <span className="text-white">Rides BCR</span>
+          <span>Rides BCR</span>
         </a>
 
-        <div className="flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8">
           <NavLink href="/about">About Us</NavLink>
           <NavLink href="/fleet">The Fleet</NavLink>
           <NavLink href="/team">The Team</NavLink>
@@ -69,20 +69,20 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-[calc(100vh-5rem)] text-center px-4">
-        <span className="text-blue-500 font-medium mb-4">
+        <span className="text-blue-500 font-medium mb-4 tracking-wider uppercase">
           SERVING THE LOS ANGELES AREA
         </span>
         
-        <h1 className="text-white text-6xl font-bold max-w-4xl leading-tight mb-6">
+        <h1 className="text-white text-4xl md:text-6xl font-bold max-w-4xl leading-tight mb-6">
           This Weekend, You're the One They're Filming
         </h1>
         
-        <p className="text-gray-300 text-xl max-w-2xl mb-8">
+        <p className="text-gray-300 text-lg md:text-xl max-w-2xl mb-8">
           Real pricing. Spotless cars. No hassle. Just clean rides and fast booking from a crew that actually cares.
         </p>
 
         <div className="flex items-center gap-4">
-          <Button>Send Message</Button>
+          <Button>Book Now</Button>
           <Button variant="secondary">View Our Fleet</Button>
         </div>
       </div>
