@@ -20,13 +20,13 @@ export default function Hero() {
   return (
     <div className="relative h-screen">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(/Images/Corvette C8/DSC01434.jpg)',
-          backgroundPosition: 'center 25%'
-        }}
-      >
+      <div className="absolute inset-0 overflow-hidden">
+        <img 
+          src="/Images/Corvette C8/DSC01434.jpg"
+          alt="Hero Background"
+          className="w-full h-full object-cover object-center scale-110"
+          style={{ objectPosition: '50% 35%' }}
+        />
         <div className="absolute inset-0 bg-black/70" />
       </div>
 
