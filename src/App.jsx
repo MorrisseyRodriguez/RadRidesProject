@@ -298,11 +298,11 @@ function App() {
                   <img 
                     src={member.image} 
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-opacity duration-500 group-hover:opacity-0" />
                   
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transition-opacity duration-500 group-hover:opacity-0">
                     <h3 className="text-2xl font-bold text-white mb-1">{member.name}</h3>
                     <p className="text-blue-500 mb-3">{member.role}</p>
                     <p className="text-white/80 text-sm">{member.description}</p>
