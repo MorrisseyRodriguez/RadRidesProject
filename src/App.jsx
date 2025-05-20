@@ -135,21 +135,21 @@ const team = [
   {
     name: "Chad",
     role: "Owner/Operator",
-    image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg",
+    image: "/Images/Team/Screenshot 2025-05-17 143859.png",
     description: "I stumbled into this business when I listed a salvage title Prius on Relay Rides. In spite of myself and with the help of Dara we've managed to build and keep it growing. I'm an enthusiast so you can always keep me talking when it comes to cars!",
     contact: true
   },
   {
     name: "Dara",
     role: "Logistics",
-    image: "https://images.pexels.com/photos/8993561/pexels-photo-8993561.jpeg",
+    image: "/Images/Team/Screenshot 2025-05-17 143848.png",
     description: "The silent partner and car rental delivery chase car girl!",
     contact: false
   },
   {
     name: "Charley & Kenny",
     role: "Mascots",
-    image: "https://images.pexels.com/photos/4587998/pexels-photo-4587998.jpeg",
+    image: "/Images/Team/Screenshot 2025-05-17 143836.png",
     description: "Mascots",
     contact: false
   }
