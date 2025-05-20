@@ -53,4 +53,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>,
 )
 vite:import-analysis
-vite:import-analysis
+vite:esbuild
