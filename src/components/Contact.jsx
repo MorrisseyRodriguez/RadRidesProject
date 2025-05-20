@@ -1,9 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Phone, Mail, Instagram, Send } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    requestType: '',
+    message: '',
+    name: '',
+    email: '',
+    phone: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('inquiries')
+        .insert([
+          {
+            type: formData.requestType,
+            message: formData.message,
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone
+          }
+        ]);
+
+      if (error) throw error;
+
+      toast.success('Message sent successfully!');
+      setFormData({
+        requestType: '',
+        message: '',
+        name: '',
+        email: '',
+        phone: ''
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="bg-black py-20">
+      <Toaster position="top-right" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Message Form */}
@@ -15,14 +70,24 @@ export default function Contact() {
               Let us know what you're looking for and we'll text you right back
             </p>
 
-            <form className="space-y-4">
-              <select className="w-full bg-zinc-900 border border-zinc-800 rounded-md p-3 text-white">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <select
+                name="requestType"
+                value={formData.requestType}
+                onChange={handleChange}
+                required
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-md p-3 text-white"
+              >
                 <option value="">Select your request type</option>
                 <option value="booking">Booking a rental</option>
                 <option value="car-request">Car request</option>
               </select>
 
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
                 placeholder="Tell us about your request"
                 className="w-full bg-zinc-900 border border-zinc-800 rounded-md p-3 text-white h-32"
               />
@@ -30,11 +95,19 @@ export default function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                   placeholder="Your name"
                   className="w-full bg-zinc-900 border border-zinc-800 rounded-md p-3 text-white"
                 />
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                   placeholder="Your email"
                   className="w-full bg-zinc-900 border border-zinc-800 rounded-md p-3 text-white"
                 />
@@ -42,12 +115,20 @@ export default function Contact() {
 
               <input
                 type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
                 placeholder="Your phone number"
                 className="w-full bg-zinc-900 border border-zinc-800 rounded-md p-3 text-white"
               />
 
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors flex items-center gap-2">
-                Send Message
+              <button 
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
                 <Send className="w-4 h-4" />
               </button>
             </form>

@@ -1,15 +1,65 @@
-import React from 'react';
-import { Clock, Gauge, Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Clock, Gauge, Users, ChevronLeft, ChevronRight, Send } from 'lucide-react';
 import { useLoaderData } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { supabase } from '../lib/supabase';
+import toast, { Toaster } from 'react-hot-toast';
 import 'swiper/css';
 
 export default function CarDetail() {
   const car = useLoaderData();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('car_inquiries')
+        .insert([
+          {
+            car_id: car.id,
+            car_name: car.name,
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone
+          }
+        ]);
+
+      if (error) throw error;
+
+      toast.success('Request sent successfully!');
+      setFormData({
+        name: '',
+        email: '',
+        phone: ''
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('Failed to send request. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="bg-black min-h-screen text-white">
+      <Toaster position="top-right" />
       <div className="relative h-[60vh] overflow-hidden">
         <Swiper
           modules={[Navigation]}
@@ -126,21 +176,47 @@ export default function CarDetail() {
                 </div>
               </div>
 
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">Name</label>
-                  <input type="text" className="w-full bg-black border border-gray-700 rounded-md p-2" />
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-black border border-gray-700 rounded-md p-2"
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Email</label>
-                  <input type="email" className="w-full bg-black border border-gray-700 rounded-md p-2" />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-black border border-gray-700 rounded-md p-2"
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Phone</label>
-                  <input type="tel" className="w-full bg-black border border-gray-700 rounded-md p-2" />
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-black border border-gray-700 rounded-md p-2"
+                  />
                 </div>
-                <button className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-colors">
-                  Reserve Now
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Sending...' : 'Reserve Now'}
+                  <Send className="w-4 h-4" />
                 </button>
               </form>
             </div>
