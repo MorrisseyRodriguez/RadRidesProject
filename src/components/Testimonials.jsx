@@ -6,6 +6,30 @@ import 'swiper/css';
 
 const testimonials = [
   {
+    name: 'Diego Carrillo',
+    stats: 'Local Guide • 10 reviews • 14 photos',
+    rating: 5,
+    text: 'Chad and Rad Rides, are amazing to work with. Super convenient, easy pick up and drop off. Not to mention the experience with the car, no issues whatsoever and a great ride. Thanks again will definitely be using again!'
+  },
+  {
+    name: 'Arta Gold',
+    stats: '3 reviews • 5 photos',
+    rating: 5,
+    text: 'I had an amazing experience renting out the 570S! Chad was super nice and made the rental process easy. The car was in fantastic condition, and driving it was such a thrill. Highly recommend!'
+  },
+  {
+    name: 'Jonathan Bach',
+    stats: '5 reviews • 1 photo',
+    rating: 5,
+    text: 'Flawless experience with the Corvette. The car was super clean and a blast to drive, thanks Chad!'
+  },
+  {
+    name: 'Rafael Moreira',
+    stats: '2 reviews • 0 photos',
+    rating: 5,
+    text: 'Chad helped me with any issues I had, even after I returned the car. Had a great time and will definitely look to rent again in the future!!'
+  },
+  {
     name: 'Justin Baraglia',
     stats: '1 review • 1 photo',
     rating: 5,
