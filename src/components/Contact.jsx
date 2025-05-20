@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Phone, Mail, Instagram, Send } from 'lucide-react';
-import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function Contact() {
@@ -23,42 +22,15 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    console.log('Form submission started');
-    
-    if (!isSupabaseConfigured()) {
-      console.error('Supabase not configured');
-      toast.error('Contact form is temporarily unavailable. Please call or email us directly.');
-      return;
-    }
-
-    if (!formData.request_type || !formData.tell_us_about_your_request || !formData.name || !formData.email || !formData.phone) {
-      console.log('Form validation failed:', formData);
-      toast.error('Please fill in all fields');
-      return;
-    }
-
     setIsSubmitting(true);
-    console.log('Submitting form data:', formData);
 
     try {
-      const { data, error } = await supabase
-        .from('Inquires') // Note the capital I here
-        .insert([{
-          request_type: formData.request_type,
-          tell_us_about_your_request: formData.tell_us_about_your_request,
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone
-        }])
-        .select();
+      await emailjs.sendForm(
+        'Rad Rides BCR Inquiries',
+        'template_8r2jylj',
+        e.target
+      );
 
-      if (error) {
-        console.error('Supabase error:', error);
-        throw error;
-      }
-
-      console.log('Submission successful:', data);
       toast.success('Message sent successfully!');
       setFormData({
         request_type: '',
@@ -68,7 +40,7 @@ export default function Contact() {
         phone: ''
       });
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error('EmailJS error:', error);
       toast.error('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
