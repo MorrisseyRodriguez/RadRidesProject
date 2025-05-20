@@ -65,7 +65,7 @@ export default function Footer({ scrollToSection }) {
             <div className="space-y-2 text-white/60">
               <p>Calabasas, CA 91302</p>
               <a 
-                href="tel:(818) 231-7347" 
+                href="tel:+18182317347" 
                 className="block hover:text-white transition-colors"
               >
                 (818) 231-7347

@@ -145,7 +145,7 @@ export default function Contact() {
               <div>
                 <h3 className="text-white text-xl mb-4">Give us a call</h3>
                 <a
-                  href="tel:(818) 231-7347"
+                  href="tel:+18182317347"
                   className="text-blue-500 hover:text-blue-400 flex items-center gap-2"
                 >
                   <Phone className="w-5 h-5" />

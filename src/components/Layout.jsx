@@ -62,7 +62,7 @@ export default function Layout() {
           <Link to="/faqs" className="text-white/80 hover:text-white transition-colors">FAQs</Link>
           
           <a 
-            href="tel:8182317347" 
+            href="tel:+18182317347" 
             className="flex items-center gap-2 bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 text-white"
           >
             <Phone className="w-4 h-4" />
