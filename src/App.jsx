@@ -89,7 +89,7 @@ const fleet = [
   {
     id: 'fiat-500-abarth',
     name: 'Fiat 500 Abarth',
-    image: '/Images/Fiat/fiat.jpg',
+    image: '/Images/Fiat 500/Screenshot 2025-05-18 025853.png',
     hasDiscount: true
   }
 ];
