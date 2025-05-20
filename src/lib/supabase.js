@@ -11,5 +11,12 @@ export const supabase = supabaseUrl && supabaseAnonKey
 
 // Helper function to check if Supabase is configured
 export const isSupabaseConfigured = () => {
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.error('Supabase configuration missing:', {
+      hasUrl: Boolean(supabaseUrl),
+      hasKey: Boolean(supabaseAnonKey)
+    });
+    return false;
+  }
   return Boolean(supabase);
 };

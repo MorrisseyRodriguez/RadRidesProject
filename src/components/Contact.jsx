@@ -25,14 +25,20 @@ export default function Contact() {
     e.preventDefault();
     
     if (!isSupabaseConfigured()) {
+      console.error('Supabase not configured');
       toast.error('Contact form is temporarily unavailable. Please call or email us directly.');
+      return;
+    }
+
+    if (!formData.requestType || !formData.message || !formData.name || !formData.email || !formData.phone) {
+      toast.error('Please fill in all fields');
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('inquiries')
         .insert([
           {
@@ -42,10 +48,15 @@ export default function Contact() {
             email: formData.email,
             phone: formData.phone
           }
-        ]);
+        ])
+        .select();
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase error:', error);
+        throw error;
+      }
 
+      console.log('Success:', data);
       toast.success('Message sent successfully!');
       setFormData({
         requestType: '',
