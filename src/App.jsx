@@ -203,14 +203,18 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {fleet.map((car) => (
-              <div key={car.id} className="bg-zinc-900 rounded-lg overflow-hidden">
-                <div className="relative aspect-[16/9]">
+              <div 
+                key={car.id} 
+                className="bg-zinc-900 rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,119,255,0.5)] group"
+              >
+                <div className="relative aspect-[16/9] overflow-hidden">
                   <img 
                     src={car.image} 
                     alt={car.name}
-                    className="w-full h-full object-cover object-center scale-110"
+                    className="w-full h-full object-cover object-center scale-110 transition-transform duration-500 group-hover:scale-125"
                     style={{ objectPosition: '50% 50%' }}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-white mb-3">{car.name}</h3>
