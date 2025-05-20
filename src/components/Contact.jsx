@@ -43,7 +43,7 @@ export default function Contact() {
 
     try {
       const { data, error } = await supabase
-        .from('Inquires')
+        .from('Inquires') // Note the capital I here
         .insert([{
           request_type: formData.request_type,
           tell_us_about_your_request: formData.tell_us_about_your_request,
