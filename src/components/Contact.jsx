@@ -5,8 +5,8 @@ import toast, { Toaster } from 'react-hot-toast';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    requestType: '',
-    message: '',
+    request_type: '',
+    tell_us_about_your_request: '',
     name: '',
     email: '',
     phone: ''
@@ -32,7 +32,7 @@ export default function Contact() {
       return;
     }
 
-    if (!formData.requestType || !formData.message || !formData.name || !formData.email || !formData.phone) {
+    if (!formData.request_type || !formData.tell_us_about_your_request || !formData.name || !formData.email || !formData.phone) {
       console.log('Form validation failed:', formData);
       toast.error('Please fill in all fields');
       return;
@@ -43,40 +43,32 @@ export default function Contact() {
 
     try {
       const { data, error } = await supabase
-        .from('Inquires') // Updated table name to match the requirement
-        .insert([
-          {
-            type: formData.requestType,
-            message: formData.message,
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone
-          }
-        ])
+        .from('Inquires')
+        .insert([{
+          request_type: formData.request_type,
+          tell_us_about_your_request: formData.tell_us_about_your_request,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone
+        }])
         .select();
 
       if (error) {
         console.error('Supabase error:', error);
-        console.error('Error details:', {
-          code: error.code,
-          message: error.message,
-          details: error.details
-        });
         throw error;
       }
 
       console.log('Submission successful:', data);
       toast.success('Message sent successfully!');
       setFormData({
-        requestType: '',
-        message: '',
+        request_type: '',
+        tell_us_about_your_request: '',
         name: '',
         email: '',
         phone: ''
       });
     } catch (error) {
       console.error('Submission error:', error);
-      console.error('Full error object:', JSON.stringify(error, null, 2));
       toast.error('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -99,8 +91,8 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <select
-                name="requestType"
-                value={formData.requestType}
+                name="request_type"
+                value={formData.request_type}
                 onChange={handleChange}
                 required
                 className="w-full bg-zinc-900 border border-zinc-800 rounded-md p-3 text-white"
@@ -111,8 +103,8 @@ export default function Contact() {
               </select>
 
               <textarea
-                name="message"
-                value={formData.message}
+                name="tell_us_about_your_request"
+                value={formData.tell_us_about_your_request}
                 onChange={handleChange}
                 required
                 placeholder="Tell us about your request"
