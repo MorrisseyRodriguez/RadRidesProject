@@ -6,13 +6,19 @@ import CarDetail from './components/CarDetail.jsx'
 import Layout from './components/Layout.jsx'
 import FAQ from './components/FAQ.jsx'
 import About from './components/About.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 import { carsData } from './data/cars.js'
 import './index.css'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <>
+        <ScrollToTop />
+        <Layout />
+      </>
+    ),
     children: [
       {
         path: "/",
