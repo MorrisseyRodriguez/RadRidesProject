@@ -3,7 +3,7 @@ import { Clock, Gauge, Users, ChevronLeft, ChevronRight, Send } from 'lucide-rea
 import { useLoaderData } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { supabase } from '../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import toast, { Toaster } from 'react-hot-toast';
 import 'swiper/css';
 
@@ -26,6 +26,12 @@ export default function CarDetail() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!isSupabaseConfigured()) {
+      toast.error('Booking form is temporarily unavailable. Please call or email us directly.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, Instagram, Send } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function Contact() {
@@ -23,6 +23,12 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!isSupabaseConfigured()) {
+      toast.error('Contact form is temporarily unavailable. Please call or email us directly.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
