@@ -1,22 +1,33 @@
 import React from 'react';
 import { Phone } from 'lucide-react';
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 
-const Button = ({ variant = 'primary', children, className, ...props }) => (
-  <button
-    className={clsx(
-      "px-6 py-3 rounded font-medium transition-all duration-300",
-      variant === 'primary' && "bg-blue-600 text-white hover:bg-blue-700 hover:scale-105",
-      variant === 'secondary' && "bg-transparent text-white border border-white/30 hover:bg-white/10 hover:border-white",
-      className
-    )}
-    {...props}
-  >
-    {children}
-  </button>
-);
+const Button = ({ variant = 'primary', children, className, as = 'button', ...props }) => {
+  const Component = as;
+  return (
+    <Component
+      className={clsx(
+        "px-6 py-3 rounded font-medium transition-all duration-300",
+        variant === 'primary' && "bg-blue-600 text-white hover:bg-blue-700 hover:scale-105",
+        variant === 'secondary' && "bg-transparent text-white border border-white/30 hover:bg-white/10 hover:border-white",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </Component>
+  );
+};
 
 export default function Hero() {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative h-screen">
       {/* Background Image */}
@@ -48,8 +59,19 @@ export default function Hero() {
           </p>
 
           <div className="flex items-center gap-6">
-            <Button>Send Message →</Button>
-            <Button variant="secondary">View Our Fleet</Button>
+            <Button 
+              as="button"
+              onClick={() => scrollToSection('contact')}
+            >
+              Send Message →
+            </Button>
+            <Button 
+              as="button"
+              variant="secondary"
+              onClick={() => scrollToSection('fleet')}
+            >
+              View Our Fleet
+            </Button>
           </div>
         </div>
       </div>
