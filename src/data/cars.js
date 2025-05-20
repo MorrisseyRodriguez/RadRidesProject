@@ -106,7 +106,12 @@ export const carsData = {
   },
   'cadillac-escalade': {
     name: 'Cadillac Escalade Sport Platinum',
-    image: '/Images/Escalade/escalade.jpg',
+    images: [
+      '/Images/Cadillac Escalade/20241114_163926.jpg',
+      '/Images/Cadillac Escalade/Screenshot 2025-05-18 025321.png',
+      '/Images/Cadillac Escalade/Screenshot 2025-05-18 025340.png'
+    ],
+    image: '/Images/Cadillac Escalade/20241114_163926.jpg',
     acceleration: '4.4s',
     horsepower: '682hp',
     topSpeed: 'Not specified',

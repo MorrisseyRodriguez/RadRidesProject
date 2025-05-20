@@ -83,7 +83,7 @@ const fleet = [
   {
     id: 'cadillac-escalade',
     name: 'Cadillac Escalade Sport Platinum',
-    image: '/Images/Escalade/escalade.jpg',
+    image: '/Images/Cadillac Escalade/20241114_163926.jpg',
     hasDiscount: true
   },
   {
