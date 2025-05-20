@@ -27,8 +27,11 @@ export default function CarDetail() {
                 <img 
                   src={image} 
                   alt={`${car.name} - View ${index + 1}`}
-                  className="w-full h-full object-cover object-center scale-110"
-                  style={{ objectPosition: car.id === 'fiat-500-abarth' ? '50% 35%' : '50% 50%' }}
+                  className="w-full h-full object-cover object-center"
+                  style={{ 
+                    objectPosition: car.id === 'fiat-500-abarth' ? '50% 35%' : '50% 50%',
+                    transform: car.id === 'fiat-500-abarth' ? 'scale(1.05)' : 'scale(1.1)'
+                  }}
                 />
               </div>
             </SwiperSlide>
